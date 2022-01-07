@@ -1,24 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./cross-only.css";
+import "./hamburger-only.css";
 
 function App() {
+  const [hamburger, setHamburger] = React.useState(-1);
+  const a = 1;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
+          onClick={() => {
+            setHamburger(0);
+            setTimeout(() => {setHamburger(1)}, 450);
+            setTimeout(() => {setHamburger(2)}, 455);
+          }}
+          className={`scale-container${
+            hamburger === 0? " move" : hamburger > 0 ? " reset" : ""
+          }`}
         >
-          Learn React
-        </a>
-      </header>
+          <div
+            className={`hamburger-white-bar top${
+              hamburger === 0? " move" : hamburger > 0 ? " reset" : ""
+            }`}
+          />
+          <div
+            className={`hamburger-white-bar center${
+              hamburger === 0? " move" : hamburger > 0 ? " reset" : ""
+            }`}
+          />
+          <div
+            className={`hamburger-white-bar bottom${
+              hamburger === 0? " move" : hamburger > 0 ? " reset" : ""
+            }`}
+          />
+        </div>
+        <div
+          onClick={() => {
+            setHamburger(0);
+            setTimeout(() => {setHamburger(1)}, 450);
+          }}
+          className={`icon-container${hamburger === 2 ? ' show': hamburger === 1 ? ' reset':''}`}
+        >
+          <div
+            className={`white-bar left${
+              hamburger === 2 ? " show" : hamburger === 1 ? " reset" : ""
+            }`}
+          />
+          <div className="inverted-container-right">
+            <div
+              className={`white-bar right${
+                hamburger === 2 ? " show" : hamburger > 1 ? " reset" : ""
+              }`}
+            />
+          </div>
+        </div>
     </div>
   );
 }

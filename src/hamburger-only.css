@@ -1,0 +1,89 @@
+.top {
+  top: 12px;
+}
+
+.center {
+  top: calc(50% - 2px);
+} 
+
+.bottom {
+  bottom: 11px;
+}
+
+.scale-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin: auto;
+  cursor: pointer;
+  transition: ease transform .3s;
+  position: absolute;
+  top: 16px;
+  left: calc(50% - 14px);
+}
+
+.hamburger-white-bar {
+  width: 25px;
+  max-height: 4px;
+  min-height: 4px;
+  border-radius: 4px;
+  background: blue;
+  transition: ease transform .3s;
+}
+
+.hamburger-white-bar:nth-child(1) {
+  top: 2%;
+}
+  
+
+.hamburger-white-bar:nth-child(2) {
+  top: 4%;
+}
+  
+
+.hamburger-white-bar:nth-child(3) {
+  top: 6%;
+}
+  
+.scale-container.move {
+  animation: ease Hamburger .7s forwards;
+}
+.scale-container.reset {
+  display: none;
+}
+.hamburger-white-bar.move {
+  animation: ease Absolute 0s .118s forwards;
+}
+.scale-container.reset {
+  /* animation: ease Hamburger .5s forwards; */
+}
+.hamburger-white-bar.top.move {
+}
+
+.hamburger-white-bar.center.move {
+}
+
+.hamburger-white-bar.bottom.move {
+}
+
+@keyframes Absolute {
+  to {
+    position: absolute;
+  }
+}
+
+@keyframes Hamburger {
+  0% {
+    
+  }
+  50% {
+    height: 0;
+  }
+  100% {
+    height: 39px;
+  }
+}

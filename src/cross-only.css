@@ -1,0 +1,83 @@
+.App {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background: #E5E5E5;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  margin: auto;
+  cursor: pointer;
+  position: absolute;
+  top: -0.5px;
+  left: calc(50% - 19.5px);
+  display: none;
+}
+
+.icon-container.show {
+  display: flex;
+}
+
+.white-bar {
+  position: absolute;
+  width: 25px;
+  max-height: 4px;
+  min-height: 4px;
+  border-radius: 4px;
+  background: blue;
+  transition: ease transform .3s;
+}
+
+.white-bar.right.show {
+  /* transform: rotate(90deg); */
+  animation: ease RotateRight .3s forwards;
+}
+
+.white-bar.left.show {
+  /* transform: rotate(0); */
+  animation: ease RotateLeft .3s forwards;
+}
+
+.inverted-container-right {
+  transition: ease transform .3s;
+  position: absolute;
+  bottom: -2px;
+  transform: rotate(90deg);
+  height: min-content;
+  width: min-content;
+}
+
+.left {
+  bottom: calc(50% - 2px);
+  transform: rotate(45deg);
+  left: 7px;
+}
+
+.right {
+  right: 9px;
+  bottom: calc(50% - 2px);
+  transform: rotate(45deg);
+}
+
+@keyframes RotateRight {
+  from {
+    transform: rotate(90deg);
+  } to {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes RotateLeft {
+  from {
+    transform: rotate(0);
+  } to {
+    transform: rotate(45deg);
+  }
+}
