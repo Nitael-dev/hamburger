@@ -4,7 +4,6 @@
   position: relative;
   background: #E5E5E5;
 }
-
 .icon-container {
   display: flex;
   flex-direction: column;
@@ -19,12 +18,14 @@
   top: -0.5px;
   left: calc(50% - 19.5px);
   display: none;
+  transform: translateY(6px);
 }
-
 .icon-container.show {
   display: flex;
 }
-
+.icon-container.reset {
+  display: flex;
+}
 .white-bar {
   position: absolute;
   width: 25px;
@@ -34,17 +35,26 @@
   background: blue;
   transition: ease transform .3s;
 }
-
 .white-bar.right.show {
   /* transform: rotate(90deg); */
+  transition: transform .3s;
   animation: ease RotateRight .3s forwards;
 }
-
 .white-bar.left.show {
   /* transform: rotate(0); */
   animation: ease RotateLeft .3s forwards;
+  transition: transform .3s;
 }
-
+.white-bar.right.reset {
+  /* transform: rotate(90deg); */
+  display: flex;
+  animation: ease ReverseRotateRight .3s forwards;
+}
+.white-bar.left.reset {
+  /* transform: rotate(0); */
+  display: flex;
+  animation: ease ReverseRotateLeft .3s forwards;
+}
 .inverted-container-right {
   transition: ease transform .3s;
   position: absolute;
@@ -53,19 +63,16 @@
   height: min-content;
   width: min-content;
 }
-
 .left {
   bottom: calc(50% - 2px);
   transform: rotate(45deg);
   left: 7px;
 }
-
 .right {
   right: 9px;
   bottom: calc(50% - 2px);
   transform: rotate(45deg);
 }
-
 @keyframes RotateRight {
   from {
     transform: rotate(90deg);
@@ -73,11 +80,24 @@
     transform: rotate(45deg);
   }
 }
-
 @keyframes RotateLeft {
   from {
     transform: rotate(0);
   } to {
     transform: rotate(45deg);
+  }
+}
+@keyframes ReverseRotateRight {
+  from {
+    transform: rotate(45deg);
+  } to {
+    transform: rotate(90deg);
+  }
+}
+@keyframes ReverseRotateLeft {
+  from {
+    transform: rotate(45deg);
+  } to {
+    transform: rotate(0);
   }
 }

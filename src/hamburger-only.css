@@ -1,89 +1,83 @@
 .top {
   top: 12px;
 }
-
 .center {
   top: calc(50% - 2px);
 } 
-
 .bottom {
   bottom: 11px;
 }
-
 .scale-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   width: 28px;
-  height: 28px;
+  height: 20px;
+  max-height: 20px;
   border-radius: 50%;
   margin: auto;
   cursor: pointer;
   transition: ease transform .3s;
   position: absolute;
-  top: 16px;
+  top: 23px;
   left: calc(50% - 14px);
 }
-
 .hamburger-white-bar {
-  width: 25px;
+  width: 24px;
   max-height: 4px;
   min-height: 4px;
   border-radius: 4px;
   background: blue;
+  position: absolute;
   transition: ease transform .3s;
 }
-
 .hamburger-white-bar:nth-child(1) {
-  top: 2%;
+  top: 0px;
+  order: 2;
 }
-  
-
 .hamburger-white-bar:nth-child(2) {
-  top: 4%;
+  margin: auto;
+  order: 3;
 }
-  
-
 .hamburger-white-bar:nth-child(3) {
-  top: 6%;
+  order: 1;
+  bottom: 0px;
 }
-  
 .scale-container.move {
-  animation: ease Hamburger .7s forwards;
+  animation: ease Hamburger .5s forwards;
 }
 .scale-container.reset {
   display: none;
 }
-.hamburger-white-bar.move {
-  animation: ease Absolute 0s .118s forwards;
+.scale-container.reverse {
+  transition: none;
+  animation: ease ReverseHamburger .3s forwards;
 }
 .scale-container.reset {
-  /* animation: ease Hamburger .5s forwards; */
+  animation: ease Hamburger .3s forwards;
 }
-.hamburger-white-bar.top.move {
+.hamburger-white-bar.reverse {
+  animation: ease Absolute 0s 1;
 }
-
-.hamburger-white-bar.center.move {
-}
-
-.hamburger-white-bar.bottom.move {
-}
-
-@keyframes Absolute {
-  to {
-    position: absolute;
-  }
-}
-
 @keyframes Hamburger {
   0% {
-    
+    height: 28px;
   }
   50% {
-    height: 0;
+    height: 4px;
+    max-height: 4px;
   }
   100% {
-    height: 39px;
+    height: 28px;
+  }
+}
+@keyframes ReverseHamburger {
+  0% {
+    height: 4px;
+    max-height: 4px;
+  }
+  100% {
+    height: 28px;
   }
 }
